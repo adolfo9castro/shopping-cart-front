@@ -1,0 +1,26 @@
+<div class="main-container">
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="header-icon" aria-label="header icon-button with menu icon" (click)="box.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #box mode="side" opened>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/products">
+          <mat-icon color="primary">list_alt</mat-icon>
+          Products
+        </a>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+      
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>

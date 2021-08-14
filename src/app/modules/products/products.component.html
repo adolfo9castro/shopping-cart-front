@@ -1,0 +1,18 @@
+<div class="content-products">
+    <div fxLayout="row wrap" fxLayoutGap="20px grid">
+        <div [fxFlex]="(100/4) + '%'" fxFlex.xs="100%" fxFlex.sm="30%" *ngFor="let product of products">
+            <mat-card class="mat-elevation-z4">
+                <img mat-card-image src="http://{{product.image}}">
+                <mat-card-content>
+                    <mat-card-title>{{product.brand}}</mat-card-title>
+                    <p>{{product.description}}</p>
+                    <span>{{product.price}}</span>
+                </mat-card-content>
+                <mat-card-actions class="products-card-actions">
+                    <button mat-button>Comprar</button>
+                    <button mat-button>Ver detalles</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
