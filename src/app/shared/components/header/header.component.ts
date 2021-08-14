@@ -13,8 +13,10 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.globalServicesService.getProducts().subscribe(brands =>{
+    this.globalServicesService.getBrands().subscribe(brands =>{
       this.brands = brands
+      console.log(brands);
+      
     })
   }
 

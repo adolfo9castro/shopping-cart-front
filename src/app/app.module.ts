@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -45,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     MatSnackBarModule,
     MatCardModule,
+    MatCheckboxModule,
     FlexLayoutModule,
     HttpClientModule
   ],

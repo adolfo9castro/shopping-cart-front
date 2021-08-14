@@ -14,9 +14,16 @@
           Products
         </a>
         <mat-divider></mat-divider>
+
+        <section class="brand-section" *ngFor="let brand of brands">
+          <mat-checkbox class="example-margin">{{brand}}</mat-checkbox>   
+        </section>
       </mat-nav-list>
-      
+
+
+
     </mat-sidenav>
+
 
     <mat-sidenav-content>
       <router-outlet></router-outlet>
