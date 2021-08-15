@@ -4,6 +4,22 @@
   height: 100%;
 }
 
+.nav-list{
+  padding: 15px;
+  margin: 10px;
+  background-color: #f0f9ff;
+  overflow: hidden;
+}
+
+.filter-brand{
+  margin-top: 20px;
+}
+
+h3.title-custom{
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
 mat-sidenav {
   width: 25%;
 }
