@@ -1,0 +1,19 @@
+<div class="content-product">
+    <div fxLayout="row wrap" fxLayoutGap="20px grid">
+        <mat-card class="mat-elevation-z4">
+            <div [fxFlex]="(100/2) + '%'" fxFlex.xs="100%" fxFlex.sm="30%" class="image-conteiner">
+                <img mat-card-image src="http://{{product.image}}" [alt]="product.description">
+            </div>
+            <div [fxFlex]="(100/2) + '%'" fxFlex.xs="100%" fxFlex.sm="30%" class="card-content-conteiner">
+                <mat-card-content >
+                    <mat-card-title>{{product.brand}}</mat-card-title>
+                    <p>{{product.description}}</p>
+                    <span><strong>{{product.price | currency}}</strong></span>
+                </mat-card-content>
+                <mat-card-actions class="product-card-actions">
+                    <button mat-raised-button color="primary">Agregar al carrito de compras</button>
+                </mat-card-actions>
+            </div>
+        </mat-card>
+    </div>
+</div>

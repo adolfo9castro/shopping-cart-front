@@ -11,6 +11,9 @@ export class GlobalServicesService {
   private currentFilter: BehaviorSubject<any> = new BehaviorSubject('')
   public brandFilterService: Observable<any> = this.currentFilter.asObservable();
 
+  private currentPath: BehaviorSubject<any> = new BehaviorSubject('')
+  public currentPathService: Observable<any> = this.currentPath.asObservable();
+
   constructor(
     private httpClient: HttpClient
   ) { }
@@ -27,5 +30,9 @@ export class GlobalServicesService {
 
   setCurrentFilter(brandFilter: any): void {
     this.currentFilter.next(brandFilter);
+  }
+
+  whatPath(path: any): void {
+    this.currentPath.next(path);
   }
 }

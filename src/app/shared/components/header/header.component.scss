@@ -20,6 +20,21 @@ h3.title-custom{
   font-size: 30px;
 }
 
+.errorMessage mat-icon{
+  width: 300px;
+  font-size: 300px;
+  height: 300px;
+  margin: 0 auto;
+  display: block;
+}
+.errorMessage p{
+  font-size: 20px;
+  text-align: center;
+}
+.mat-toolbar.mat-primary {
+  height: 40px;
+}
+
 mat-sidenav {
   width: 25%;
 }

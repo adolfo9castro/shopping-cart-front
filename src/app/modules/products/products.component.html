@@ -10,11 +10,11 @@
                 <mat-card-content>
                     <mat-card-title>{{product.brand}}</mat-card-title>
                     <p>{{product.description}}</p>
-                    <span>{{product.price}}</span>
+                    <span><strong>{{product.price | currency}}</strong></span>
                 </mat-card-content>
                 <mat-card-actions class="products-card-actions">
-                    <button mat-button>Agragar</button>
-                    <button mat-button>Ver detalles</button>
+                    <button mat-raised-button color="primary">Comprar</button>
+                    <button mat-stroked-button color="primary" (click)="seeDetails(product.id)">Ver detalles</button>                 
                 </mat-card-actions>
             </mat-card>
         </div>

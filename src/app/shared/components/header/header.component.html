@@ -1,35 +1,45 @@
 <div class="main-container">
+
   <mat-toolbar color="primary">
     <button mat-icon-button class="header-icon" aria-label="header icon-button with menu icon" (click)="box.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>My App</span>
+    <span>Shopping Cart</span>
   </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container">
+  <mat-sidenav-container class="header-sidenav-container">
     <mat-sidenav #box mode="side" opened>
-      <mat-nav-list>
-        <mat-card class="nav-list">
-          <h3 class="mat-h3 mat-display-1 title-custom">
-            <mat-icon color="primary">branding_watermark</mat-icon>
-            {{titleSection}}
-          </h3>
-          <div fxLayout="row wrap" fxLayoutGap="20px grid">
-            <section [fxFlex]="(100/3) + '%'" fxFlex.xs="80%" fxFlex.sm="30%" class="brand-section"
-              *ngFor="let brand of brands">
-              <!--<input type="checkbox" [(ngModel)]="item.isChecked" (change)="changeSelection()">{{item.label}}-->
+      <mat-nav-list *ngIf="productsPath === '/products'; else links">
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{titleSection}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
 
-              <mat-checkbox class="example-margin" (change)="changeSelection($event,brand)">{{brand}}</mat-checkbox>
-            </section>
-          </div>
-          <button mat-raised-button color="primary" class="filter-brand" (click)="sendFilter()">Aplicar filtro</button>
-        </mat-card>
-
+            <mat-selection-list [multiple]="false">
+              <mat-list-option *ngFor="let brand of brands">
+                <mat-checkbox class="header-margin" (change)="changeSelection($event,brand)">{{brand}}</mat-checkbox>
+              </mat-list-option>
+            </mat-selection-list>
+            <!-- <button mat-raised-button color="primary" class="filter-brand" (click)="sendFilter()">Aplicar filtro</button> -->
+          </mat-expansion-panel>
+        </mat-accordion>
       </mat-nav-list>
+      <ng-template #links>
+        <mat-selection-list>
+          <mat-list-item role="listitem">
+            <a [routerLink]="['/products']" mat-button>
+              <mat-icon color="primary">store</mat-icon>
+              Tienda
+            </a>
+          </mat-list-item>
+        </mat-selection-list>
+      </ng-template>
     </mat-sidenav>
     <mat-sidenav-content>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
-
   </mat-sidenav-container>
 </div>

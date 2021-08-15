@@ -24,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ProductDetailsComponent } from './modules/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     ProductsComponent,
     HeaderComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

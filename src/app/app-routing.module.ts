@@ -1,9 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './modules/home/home.component';
+import { ProductDetailsComponent } from './modules/product-details/product-details.component';
 import { ProductsComponent } from './modules/products/products.component';
 
 const routes: Routes = [
+  {
+    path: 'products',
+    component: ProductsComponent
+  },
+  {
+    path: 'product/detail/:id',
+    component: ProductDetailsComponent,
+  },
   {
     path: '',
     redirectTo: "/products",
@@ -12,11 +20,7 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: "/products"
-  },
-  {
-    path: 'products',
-    component: ProductsComponent
-  }
+  }  
 ];
 
 @NgModule({

@@ -1,0 +1,26 @@
+.content-product {
+    padding: 15px;
+    margin: 10px;
+    overflow: hidden;
+}
+.image-conteiner {
+    margin: 40px 40px;
+    border-right: #cacaca solid;
+}
+
+.image-conteiner img{
+    width: 70%;
+    margin: 0px auto;
+    display: block;
+}
+
+.card-content-conteiner{
+    margin: 40px 0;
+}
+
+.card-content-conteiner .product-card-actions{
+    bottom: 60px;
+    display: block;
+    position: absolute;
+    margin: 0;
+}
