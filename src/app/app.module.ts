@@ -26,6 +26,8 @@ import { FormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ShoppingCarComponent } from './components/shopping-car/shopping-car.component';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { ShoppingCarComponent } from './components/shopping-car/shopping-car.com
     FlexLayoutModule,
     HttpClientModule,
     FormsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   titleSection = "Filtrar por marca"
-  errorMessage: string = "Lo sentimos, parece que tenemos problemas. Intenta de nuevo más tarde"
   brands: any
   brandSelect: any = []
   selectedItemsList = [];
@@ -24,6 +23,8 @@ export class HeaderComponent implements OnInit {
   hidden = true;
   priceTotal: number = 0;
   cantProducts: number = 0;
+  sessionStorage: Array<any> = []
+  infoShopping: Array<any> = []
   private serviceSubscription: Subscription | undefined
 
   constructor(
@@ -31,7 +32,8 @@ export class HeaderComponent implements OnInit {
     private snackBar: MatSnackBar
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {   
+    sessionStorage.clear() 
     this.productsPath = ''
     this.globalServicesService.getBrands().subscribe(brands => {
       this.brands = brands
@@ -44,7 +46,15 @@ export class HeaderComponent implements OnInit {
       this.productsPath = thisPath;
     })
 
-    this.serviceSubscription = this.globalServicesService.cantProductsService.subscribe(products => {
+    this.serviceSubscription = this.globalServicesService.cantProductsService.subscribe(products => {      
+
+      if (products !== '') this.sessionStorage.push(products)
+
+      this.cantProducts = this.sessionStorage.length
+
+      this.hidden = this.cantProducts === 0 ? true : false;
+
+      sessionStorage.setItem('shopping-car', JSON.stringify(this.sessionStorage))
 
       let totalPrice: number = 0
 
@@ -69,13 +79,13 @@ export class HeaderComponent implements OnInit {
       let getSessgion: any = sessionStorage.getItem(brand)
       let getPriceBrandSelected: any = JSON.parse(getSessgion)
       let message: string
-      
-      if(getPriceBrandSelected.totalPrice < threshold){
+
+      if (getPriceBrandSelected.totalPrice < threshold) {
         message = `Agrega ${threshold - getPriceBrandSelected.totalPrice} más en productos ${brand} y aprovecha un
         descuento total de ${discount} en tu compra!`
-      }else{
+      } else {
         let totalPrice = getPriceBrandSelected.totalPrice - discount
-        sessionStorage.setItem(brand, JSON.stringify({ totalPrice}))
+        sessionStorage.setItem(brand, JSON.stringify({ totalPrice }))
         message = `Se aplicó un descuento de ${discount} por haber comprado
         ${getPriceBrandSelected.totalPrice} de productos ${brand}!`
       }

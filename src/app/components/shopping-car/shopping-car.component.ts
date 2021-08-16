@@ -9,13 +9,17 @@ import { GlobalServicesService } from 'src/app/shared/services/global-services.s
 })
 export class ShoppingCarComponent implements OnInit {
   private serviceSubscription: Subscription | undefined
-
+  title = "Shopping Cart"
+  infoShopping:any
   constructor(private globalServicesService: GlobalServicesService) { }
 
   ngOnInit(): void {
-    this.serviceSubscription = this.globalServicesService.buyProductsService.subscribe(products => {
-      console.log(products);      
-    })
+    this.globalServicesService.whatPath('') 
+    let shoppingSession: any = sessionStorage.getItem('shopping-car') || 0
+
+    let shoppingSessionInfo = JSON.parse(shoppingSession)
+
+    this.infoShopping = shoppingSessionInfo
   }
 
 }

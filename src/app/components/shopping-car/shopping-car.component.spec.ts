@@ -22,4 +22,16 @@ describe('ShoppingCarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it("El titulo debe ser", () =>{
+    expect(component.title).toMatch("Shopping Cart")
+  })
+
 });
+
+describe('Comprobando', () =>{
+  const title = "Shoping Cart"
+  it("Probando Titulo", () => {
+    expect(title).toMatch('Cart')
+  })
+})
