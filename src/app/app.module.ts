@@ -4,8 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HomeComponent } from './modules/home/home.component';
-import { ProductsComponent } from './modules/products/products.component';
+import { ProductsComponent } from './components/products/products.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,15 +23,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ProductDetailsComponent } from './modules/product-details/product-details.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ShoppingCarComponent } from './components/shopping-car/shopping-car.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     ProductsComponent,
     HeaderComponent,
     ProductDetailsComponent,
+    ShoppingCarComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,8 @@ import { ProductDetailsComponent } from './modules/product-details/product-detai
     MatCheckboxModule,
     FlexLayoutModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

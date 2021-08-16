@@ -24,4 +24,20 @@ export class ProductDetailsComponent implements OnInit {
     })
   }
 
+  setSession(product: any) {
+
+    /* this.sessionStorage.push(product)
+
+    let productsObject = {
+      store: this.sessionStorage,
+      cant: this.sessionStorage.length,
+      buyDiscount: product['brand']
+    }
+    console.log(productsObject); */
+    
+    this.globalServicesService.cantProducst(product)
+
+    //sessionStorage.setItem('sessionData',JSON.stringify(this.sessionStorage))
+  }
+
 }

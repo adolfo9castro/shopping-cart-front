@@ -11,7 +11,7 @@
                     <span><strong>{{product.price | currency}}</strong></span>
                 </mat-card-content>
                 <mat-card-actions class="product-card-actions">
-                    <button mat-raised-button color="primary">Agregar al carrito de compras</button>
+                    <button mat-raised-button color="primary" (click)="setSession(product)">Agregar al carrito de compras</button>
                 </mat-card-actions>
             </div>
         </mat-card>

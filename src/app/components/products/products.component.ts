@@ -12,7 +12,7 @@ export class ProductsComponent implements OnInit {
   title: string = "Tienda"
   errorMessage: string = "Lo sentimos, parece que tenemos problemas. Intenta de nuevo más tarde"
   products: any
-
+  sessionStorage: Array<any> = []
   private serviceSubscription: Subscription | undefined
 
   constructor(
@@ -21,7 +21,7 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.globalServicesService.whatPath(this.router.url)    
+    this.globalServicesService.whatPath(this.router.url)
 
     this.globalServicesService.getProducts({}).subscribe(products => {
       this.products = products
@@ -41,6 +41,22 @@ export class ProductsComponent implements OnInit {
   }
 
   seeDetails(id: number): void {
-    this.router.navigate(["/product/detail/",id])
+    this.router.navigate(["/product/detail/", id])
+  }
+
+  setSession(product: any) {
+
+    /* this.sessionStorage.push(product)
+
+    let productsObject = {
+      store: this.sessionStorage,
+      cant: this.sessionStorage.length,
+      buyDiscount: product['brand']
+    }
+    console.log(productsObject); */
+    
+    this.globalServicesService.cantProducst(product)
+
+    //sessionStorage.setItem('sessionData',JSON.stringify(this.sessionStorage))
   }
 }

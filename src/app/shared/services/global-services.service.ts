@@ -14,6 +14,12 @@ export class GlobalServicesService {
   private currentPath: BehaviorSubject<any> = new BehaviorSubject('')
   public currentPathService: Observable<any> = this.currentPath.asObservable();
 
+  private cantProducts: BehaviorSubject<any> = new BehaviorSubject('')
+  public cantProductsService: Observable<any> = this.cantProducts.asObservable();
+
+  private products: BehaviorSubject<any> = new BehaviorSubject('')
+  public buyProductsService: Observable<any> = this.products.asObservable();
+
   constructor(
     private httpClient: HttpClient
   ) { }
@@ -35,4 +41,19 @@ export class GlobalServicesService {
   whatPath(path: any): void {
     this.currentPath.next(path);
   }
+
+  cantProducst(products:any): void {
+    this.cantProducts.next(products);
+  }
+
+  buyProducts(products:any): void {
+    this.products.next(products);
+  }
+
+  getDiscount(data: any): Observable<any> {
+    const { endpoint, routes } = environment.server
+    return this.httpClient.post(`${endpoint}/${routes.discounts}`, data)
+  }
+
+
 }

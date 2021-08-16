@@ -4,7 +4,13 @@
     <button mat-icon-button class="header-icon" aria-label="header icon-button with menu icon" (click)="box.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span>Shopping Cart</span>
+    <span>Shopping Car</span>
+    <span class="toolbar-spacer"></span>
+    <div class="toolbar-button-container">
+      <button [routerLink]="['/shopping-car']" mat-raised-button aria-label="Example icon button with a bookmark icon">
+        <mat-icon [matBadge]="cantProducts" matBadgeColor="accent" [matBadgeHidden]="hidden">shopping_cart</mat-icon>
+      </button>
+    </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="header-sidenav-container">

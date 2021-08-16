@@ -1,3 +1,11 @@
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-button-container{
+  margin: 20px 0;
+}
+
 .main-container {
   display: flex;
   flex-flow: column;
@@ -32,7 +40,7 @@ h3.title-custom{
   text-align: center;
 }
 .mat-toolbar.mat-primary {
-  height: 40px;
+  height: 70px;
 }
 
 mat-sidenav {

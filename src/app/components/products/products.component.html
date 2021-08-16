@@ -13,7 +13,7 @@
                     <span><strong>{{product.price | currency}}</strong></span>
                 </mat-card-content>
                 <mat-card-actions class="products-card-actions">
-                    <button mat-raised-button color="primary">Comprar</button>
+                    <button mat-raised-button color="primary" (click)="setSession(product)">Comprar</button>
                     <button mat-stroked-button color="primary" (click)="seeDetails(product.id)">Ver detalles</button>                 
                 </mat-card-actions>
             </mat-card>
